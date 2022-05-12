@@ -1,4 +1,4 @@
-$jsonFromPython = python .\quickstart.py
+$jsonFromPython = python .\fetchReports.py
 
 if ($jsonFromPython -eq "No logs found.") {
     Write-Host "No logs found."
