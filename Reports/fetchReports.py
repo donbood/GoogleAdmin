@@ -33,7 +33,7 @@ def main():
     service = build('admin', 'reports_v1', credentials=creds)
 
     
-    results = service.activities().list(userKey='all', applicationName='a').execute()
+    results = service.activities().list(userKey='all', applicationName='admin').execute()
     activities = results.get('items', [])
 
     if not activities:
