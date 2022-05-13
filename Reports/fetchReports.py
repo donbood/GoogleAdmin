@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import os.path
 import json
+import sys
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -11,7 +12,7 @@ from googleapiclient.discovery import build
 SCOPES = ['https://www.googleapis.com/auth/admin.reports.audit.readonly']
 
 
-def main():
+def main(type='admin'):
     """Shows basic usage of the Admin SDK Reports API.
     """
     creds = None
@@ -33,7 +34,7 @@ def main():
     service = build('admin', 'reports_v1', credentials=creds)
 
     
-    results = service.activities().list(userKey='all', applicationName='admin').execute()
+    results = service.activities().list(userKey='all', applicationName=type).execute()
     activities = results.get('items', [])
 
     if not activities:
@@ -43,4 +44,4 @@ def main():
         print(jsonString)
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1])
