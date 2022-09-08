@@ -1,4 +1,4 @@
-# Takes all the users from the .\Get-OrgUnits.ps1 script and outputs a csv of users for each OU in the tenant.
+# Takes all the users from the .\Get-Users.ps1 script and outputs a csv of users for each OU in the tenant.
 
 $users = .\Get-Users.ps1
 $orgUnits = $users | select-object -ExpandProperty orgUnit -Unique
